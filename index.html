@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Nasa Images API</title>
-        <script src=""></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <section class="hero is-warning is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Nasa Image Gallery
+                        <span class="icon">
+                            <i class="fas fa-space-shuttle"></i>
+                        </span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+            <div class="container">
+                <div class="column is-two-thirds notification is-info tutorial">
+                    <h1 class="title">Select a Nasa Image to Learn More</h1>
+                    <p class="subtitle">or search for an image by-date</p>
+                </div>
+                <div class="column is-one-third notification is-primary tutorial">
+                    <input type="text" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="columns">
+                    <div class="column box">
+                        <div class="media-content">
+                            <figure class="image is-128x128 is-fullwidth is-flex" >
+                                <img src="https://apod.nasa.gov/apod/image/2104/NGC3521-LRGB-1.jpg" alt="Galaxy" />
+                            </figure>
+                            <div class="content">
+                                <p><strong>Nasa Photo 1</strong>
+                                    <br>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam
+                                        condimentum luctus turpis.
+                                </p>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="column box">
+                        2 Column
+                    </div>
+                    <div class="column box">
+                        3 Column
+                    </div>
+                    <div class="column box">
+                        4 Column
+                    </div>
+                    <div class="column box">
+                        5 Column
+                    </div>
+                </div>
+
+            </div>
+        <script src="utils.js"></script>
         <script src="index.js"></script>
+
     </body>
 </html>
