@@ -4,22 +4,9 @@
 	margin: auto;
 }
 
-.image {
-	display: flex;
-	justify-content: center !important;
-	align-content: center !important;
-	background-color: black;
-}
-
 .notification {
 	margin-top: 20px !important;
 }
-
-.results {
-	max-height: 500px;
-	overflow-y: scroll;
-}
-
 .title .icon {
 	margin-left: 15px;
 }
@@ -28,22 +15,11 @@
 	margin-bottom: 20px;
 }
 
-.forms {
-	display: flex;
-	justify-content: space-around;
-}
-
-.dropdown-item {
-	display: flex;
-	align-items: center;
-	height: 60px;
-}
-
-.dropdown-item img {
-	height: 50px;
-	margin-right: 10px;
-}
-
 .box {
-	margin: .75em;
+	margin: 2em;
+}
+
+.enlarge {
+	margin: 0px;
+	transform: scale(.25);
 }
