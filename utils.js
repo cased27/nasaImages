@@ -6,6 +6,6 @@ const debounce = (fn) => {
         }
         timeoutId = setTimeout(() => {
             fn.apply(null, args);
-        }, 1000)
+        }, 500)
     }
 }
