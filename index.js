@@ -21,7 +21,9 @@ const onInput = async e => {
             <article class="media">
                 <div class="media-left">
                     <figure class="image is-128x128">
+                        <a>
                         <img src="${imgSrc}" alt="image"/>
+                        </a>
                     </figure>
                 </div>
                 <div class="media-content">
@@ -40,35 +42,17 @@ const onInput = async e => {
     
     
     document.addEventListener('click', e => {
-        enlargeImg()
+        const imgContainer = document.querySelector('a');
+        const searchElement = document.querySelector('#searchDataFill')
+        if (!searchElement.contains(e.target)) {
+            imgContainer.href = '#';
+        } else {
+            imgContainer.href = `${imgSrc}`;
+            imgContainer.target = '_blank';
+        }
     })
 
 };
 input.addEventListener('input', debounce(onInput, 300));
-
-function enlargeImg() {
-    const imgContainer = document.querySelector('#enlargeImgBox');
-    imgContainer.classList.add('m-0')
-    const image = document.querySelector('img');
-    image.classList.add('enlarge')
-    document.querySelector('#enlargeImgBox').insertAdjacentElement('afterbegin', image)
-}
-
-
-//Auto close the enlarged img window upon click anywhere
-// document.addEventListener('click', e => {
-//     const searchElement = document.querySelector('#searchDataFill')
-//     if (!searchElement.contains(e.target)) {
-//         //add/remove the class to open/close popup
-//         // dropdown.classList.remove('is-active');
-//     }
-// })
-
-
-// image.addEventListener('mouseover', () => {
-//     image.classList.add("enlarge");
-
-// })
-
 
 
