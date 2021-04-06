@@ -3,15 +3,16 @@ const fetchData = async (searchTerm) => {
         params: {
             api_key: 'azR1RTXJ6KG4pno6gZDcV3KtBtXpwNxpOkp3qquj',
             date: searchTerm
-        }
+        },
     });
     if (response.data.error) {
         return [];
     }
+    console.log(response)
     return response.data
 };
 
-const displayResults = (content, src, title, desc) => {
+const displayResults = (content, src, title, date, desc) => {
     content.innerHTML = `
             <div class="box">
                 <article class="media">
@@ -25,12 +26,14 @@ const displayResults = (content, src, title, desc) => {
                                         <img src="${src}" alt="image" class="modal-image" />
                                     </p>
                                 </div>
-                            
+                            </div>
                         </figure>
                     </div>
                     <div class="media-content">
                         <div class="content">
                             <p><strong>${title}</strong>
+                                <br>
+                                <strong>${date}</strong>
                                 <br>
                                 ${desc}
                             </p>
@@ -59,7 +62,29 @@ const onInput = async e => {
     const searchResults = document.createElement('div');
     const imgSrc = data.hdurl === undefined ? data.url : data.hdurl;
     const title = data.title;
+    const imgDate = new Date(data.date);
+    configureDate();     
+    const date = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    }).format(imgDate);
+        function configureDate() {
+
+            imgDate.getDay();
+            imgDate.getDate();
+            imgDate.getMonth();
+            imgDate.getFullYear();
+        }
     const desc = data.explanation;
-    displayResults(searchResults, imgSrc, title, desc);
+    displayResults(searchResults, imgSrc, title, date, desc);
 };
-input.addEventListener('input', debounce(onInput, 300));
+input.addEventListener('input', debounce(onInput), 500);
+
+
+// const progressBar = () => {
+//     const progress = document.querySelector('progress');
+//     progress.classList.add('progress', 'is-small', 'is-dark');
+//     progress.setAttribute('max', '100');
+// }
